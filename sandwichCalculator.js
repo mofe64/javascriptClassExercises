@@ -1,3 +1,4 @@
+const prompt = require('prompt-sync')()
 const sandwichCalculator = (slicesOfBread) => {
    let numberOfPossibleSanwiches = slicesOfBread / 2;
     return Math.floor(numberOfPossibleSanwiches);
@@ -18,8 +19,16 @@ const extendedSandwichCalculator = (slicesOfBread, slicesOfCheese) => {
     }
 
 
-    console.log(noOfSandwichesWithChese)
+    // console.log(noOfSandwichesWithChese)
     return noOfSandwichesWithChese;
 }
 
-extendedSandwichCalculator(10, 2)
+let choice = Number(prompt("Enter 1 to calculate with just bread or 2 to calculate with bread and cheese"))
+if (choice === 1) {
+    let slicesOfBread = Number(prompt("Enter the slices of bread available "))
+    console.log(sandwichCalculator(slicesOfBread))
+} else {
+    let slicesOfBread = Number(prompt("Enter the slices of bread available "))
+    let slicesOfCheese = Number(prompt("Enter the slices of Cheese available "))
+    console.log(extendedSandwichCalculator(slicesOfBread, slicesOfCheese))
+}
